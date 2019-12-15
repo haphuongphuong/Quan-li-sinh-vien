@@ -82,7 +82,6 @@ function save(){
 
 function renderListStudent(){
 	let students  = localStorage.getItem('students') ? JSON.parse(localStorage.getItem('students')) : [];
-	console.log(students.length)
 	if(students.length === 0){
 		document.getElementById('list-student').style.display = 'none';
 		return false;
@@ -100,6 +99,7 @@ function renderListStudent(){
 			</tr>`;
 
 	students.forEach((student,index) => {
+			let studentID = index;
 			index++;
 			let genderLabel = parseInt(student.gender) === 1 ? 'Nam' : 'Nu';
 
@@ -111,9 +111,17 @@ function renderListStudent(){
 				<td>${genderLabel}</td>
 				<td>${student.address}</td>
 				<td>
-					<a href='#'>Edit</a> | <a href='#'>Delete</a>
+					<a href='#'>Edit</a> | <a href='#' onclick="deleteStudent(${studentID})">Delete</a>
 				</td>
 			</tr>`
 		})
 	document.getElementById('grid-students').innerHTML = tableContent;
+}
+
+function deleteStudent(id){
+	let students  = localStorage.getItem('students') ? JSON.parse(localStorage.getItem('students')) : [];
+	students.splice(id,1);
+
+	localStorage.setItem('students', JSON.stringify(students));
+	renderListStudent();
 }
