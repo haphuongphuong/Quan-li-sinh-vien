@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quản lí sinh viên</title>
+	<link rel="stylesheet" type="text/css" href="./CSS/style.css">
+</head>
+<body>
+	<div class="form-student">
+		<h3>Thông tin sinh viên</h3>
+		<label>Họ và tên</label>
+		<input type="text" id="Fullname">
+		<span id="fullname-erro" class="erro"></span>
+		<br>
+
+		<label>Địa chỉ Email</label>
+		<input type="text" id="email">
+		<span id="email-erro" class="erro"></span>
+		<br>
+
+		<label>Số điện thoại</label>
+		<input type="text" id="phone">
+		<span id="phone-erro" class="erro"></span>
+		<br>
+		<br>
+
+		<label>Địa chỉ</label>
+		<input type="text" id="address">
+		<span id="address-erro" class="erro"></span>
+		<br>
+
+		<label>Giới tính</label>
+		<input type="radio" name="gender" id="male" value ="1" > Nam
+		<input type="radio" name="gender" id="female" value ="2" > Nữ
+		<span id="gender-erro" class="erro"></span>
+		<br>
+
+		<label>&nbsp;</label>
+		<button onclick="save()">Save</button>
+		<br>
+	</div>
+
+	<div class="list-student">
+		<h3>Danh sách sinh viên</h3>
+		<table id="grid-students" width="600" border="1" cellpadding="0" cellpadding="0">
+		</table>
+	</div>
+	<script src='https://cdn.jsdelivr.net/g/lodash@4(lodash.min.js+lodash.fp.min.js)'></script>
+	<script src="./JS/student.js"></script>
+</body>
+</html>
